@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { questionPropType } from './Types/quiz_types';
-
+import './css/QuestionRender.css';
 const QuestionRender: React.FC<questionPropType> = ({ question, options, callback }) => {
     // console.log(question);
     // console.log(options);
@@ -9,35 +9,39 @@ const QuestionRender: React.FC<questionPropType> = ({ question, options, callbac
         setSelectedAns(event.target.value);
     }
     return (
-        <>
+        <div className='container'>
             <div className='question-contaiiner'>
                 <div className='question'>
-                    <h4>{question}</h4>
+                    <h3>Question:  &nbsp;{question}</h3>
                 </div>
-            </div>
+            </div><br />
             <form onSubmit={(e: React.FormEvent<EventTarget>) => callback(e, selectedAns)}>
                 {
                     options.map((opt: string, ind: number) => {
                         return (
-                            <div key={ind}>
-                                <label>
-                                    <input
-                                        required
-                                        type='radio'
-                                        name='opt'
-                                        value={opt}
-                                        onChange={handleSelection}
-                                        checked={selectedAns === opt}
-                                    />
-                                    {opt}
-                                </label>
+
+                            <div key={ind} className='list'>
+                                <ul className="list-group list-group-flush">
+                                    <li className="list-group-item "><br />
+                                        <h4>
+                                            <input
+                                                required
+                                                type='radio'
+                                                name='opt'
+                                                value={opt}
+                                                onChange={handleSelection}
+                                                checked={selectedAns === opt}
+                                            />&nbsp;&nbsp;{opt}
+                                        </h4>                                        </li>
+                                </ul>
                             </div>
                         )
                     })
-                }
-                <input type='submit' />
+                }<br />
+                {/* <input type='submit' /> */}
+                <button type="submit" className="btn btn-outline-dark">Submit</button>
             </form>
-        </>
+        </div>
     )
 }
 
