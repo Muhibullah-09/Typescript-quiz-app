@@ -1,0 +1,20 @@
+.container {
+    max-width: 600px;
+    box-shadow: 0px 30px 24px #867a7a;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.question-form{
+    max-width: 500px;
+    box-shadow: 0px 20px 24px #867a7a;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.question-form h5{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+}

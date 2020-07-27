@@ -4,9 +4,10 @@ import { QuizDetails } from './services/QuizDetails';
 import QuestionRender from './QuestionRender';
 import './css/QuestionRender.css';
 function Main() {
-    const [quiz, setQuiz] = useState<QuizType[]>([])
-    const [currentStep, setCurrentStep] = useState(0);
-    const [currentScore, setCurrentScore] = useState(0);
+    let [quiz, setQuiz] = useState<QuizType[]>([])
+    let [currentStep, setCurrentStep] = useState(0);
+    let [currentScore, setCurrentScore] = useState(0);
+    let [showResult, setShowResult] = useState(false);
     useEffect(() => {
         async function fetchData() {
             const questions: QuizType[] = await QuizDetails(5, 'easy');
@@ -29,14 +30,20 @@ function Main() {
             setCurrentStep(currentStep + 1);
         }
         else {
-            alert(`Your Final Score is ${currentScore} out of ${quiz.length}`)
-            setCurrentStep(0);
-            setCurrentScore(0);
+            setShowResult(true)
         }
     };
 
     if (!quiz.length) {
-        return <h3>Loading...</h3>
+        return <h3 style={{ textAlign: "center" }}>Loading...</h3>
+    }
+    if (showResult) {
+        return (
+            <div className='container' style={{ textAlign: "center" }}>
+                <h1>Result</h1><br />
+                <h3>Your Final Score is {currentScore} out of {quiz.length}</h3>
+            </div>
+        )
     }
     return (
         <div>

@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 function Home() {
     return (
         <>
-            <div className="text-right" style={{ width: '950px' }}>
-                <h1>EebTech Online Quiz System</h1>
-            </div>
-            <h1>Quiz SignIn</h1>
-            <form style={{ width: '400px' }}>
+            <form className='question-form' style={{ width: '400px' }}>
+                <h2>EebTech Online Quiz System</h2><br />
+                <h5>Login</h5><br />
                 <div className="form-row align-items-center">
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1"><b>Email address</b></label>
