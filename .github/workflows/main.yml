@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy Website
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: React basic app Deploying to surge
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Install NodeJS
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: 12
+          
+          
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install # will run `yarn install` command   
+          
+    - name: Build React App
+      run: yarn build
+     
+    - name: Install surge
+      run: npm install --global surge 
+     
+    - name: Deploy to surge
+      run: surge ./build EebTechQuizSystem.surge.sh --token ${{secrets.Surge_secret}}
