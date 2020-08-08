@@ -32,13 +32,13 @@ const QuestionRender: React.FC<questionPropType> = ({ question, options, callbac
                                                 onChange={handleSelection}
                                                 checked={selectedAns === opt}
                                             />&nbsp;&nbsp;{opt}
-                                        </h4>                                        </li>
+                                        </h4>
+                                    </li>
                                 </ul>
                             </div>
                         )
                     })
                 }<br />
-                {/* <input type='submit' /> */}
                 <button type="submit" className="btn btn-outline-dark">Submit</button>
             </form>
         </div>

@@ -16,7 +16,7 @@ function Home() {
                         <label htmlFor="exampleInputPassword1"><b>Password</b></label>
                         <input type="password" required className="form-control" id="exampleInputPassword1" />
                     </div><br /><br />
-                    <Link to='main' ><button type="button" className="btn btn-outline-secondary" style={{ textAlign: "center" }}>Start Quiz</button></Link>
+                    <Link to='main' ><button type="button" className="btn btn-outline-secondary" style={{ textAlign: "center" }} >Start Quiz</button></Link>
                 </div>
             </form>
         </>
